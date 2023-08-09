@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+func main() {
+	var n int
+
+	fmt.Print("Digite o valor de n: ")
+	fmt.Scan(&n)
+	resultado := fibo(n)
+	fmt.Printf("O", n, " elemento da série de Fibonacci é: ", resultado)
+}
+
+func fibo(n int) int {
+	if n <= 0 {
+		return 0
+	} else if n == 1 {
+		return 1
+	}
+
+	fib := make([]int, n+1)
+	fib[0] = 0
+	fib[1] = 1
+
+	for i := 2; i <= n; i++ {
+		fib[i] = fib[i-1] + fib[i-2]
+	}
+
+	return fib[n]
+}
