@@ -1,0 +1,29 @@
+package main
+
+import "fmt"
+
+func main() {
+	var ano int
+
+	fmt.Print("Digite o ano: ")
+	fmt.Scanln(&ano)
+
+	if e_bissexto(ano) {
+		fmt.Print(ano, " é bissexto!")
+	} else {
+		fmt.Print(ano, " não é bissexto!")
+	}
+}
+
+func e_bissexto(ano int) bool {
+	if ano%4 == 0 {
+		if ano%100 == 0 {
+			if ano%400 == 0 {
+				return true
+			}
+			return false
+		}
+		return true
+	}
+	return false
+}
