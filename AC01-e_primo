@@ -1,0 +1,41 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	var num int
+
+	fmt.Print("Informe o numero:")
+	fmt.Scan(&num)
+
+	if e_primo(num) {
+		fmt.Println(num, " é um número primo.\n")
+	} else {
+		fmt.Println(num, " não é um número primo. Divisores:")
+		for i := 1; i <= num; i++ {
+			if num%i == 0 {
+				fmt.Print(i, " ")
+			}
+		}
+	}
+}
+
+func e_primo(num int) bool {
+	if num <= 1 {
+		return false
+	}
+
+	limite := 1
+	for limite*limite <= num {
+		limite++
+	}
+
+	for i := 2; i < limite; i++ {
+		if num%i == 0 {
+			return false
+		}
+	}
+
+	return true
+}
