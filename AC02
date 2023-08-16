@@ -1,0 +1,58 @@
+package main
+
+import "fmt"
+
+type Contato struct {
+	Nome	string
+	Email	string
+}
+
+func (c *Contato) alterarEmail(valor string) {
+	c.Email = valor
+}
+
+func adicionaContato(contato Contato, contatos [5]Contato) [5]Contato {
+	for i, cont := range contatos{
+		if (cont == Contato{}) {
+			contatos[i] = cont
+			break
+		}
+	}
+	return contatos
+}
+
+func (c Contato) excluiContato() {
+
+}
+
+func main(){
+	//ex1
+	contato01 := Contato{
+		Nome:     "Gui",
+		Email: "001@gmail.com",
+	}
+
+	fmt.Println(contato01)
+	contato01.alterarEmail("gui@gmail.com")
+	fmt.Println(contato01)
+
+	//ex2
+	var contatos [5]Contato
+	var nome string
+	var email string
+	var x int
+	fmt.Println("Informe o nome:")
+	fmt.Scanln(&nome)
+	fmt.Println("Informe o e-mail:")
+	fmt.Scanln(&email)
+
+	//ex3
+	fmt.Println(contatos)
+	fmt.Println("Quer excluir o ultimo contato digite (1): ")
+	fmt.Scanln(&x)
+
+	if x == 1 {
+		excluiContato()
+	}
+
+}
