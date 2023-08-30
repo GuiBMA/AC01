@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func main() {
+	qtdDiscos := 3
+	movimentos := hanoi(qtdDiscos, "A", "B", "C")
+	fmt.Print(movimentos)
+}
+
+func hanoi(n int, origem string, trabalho string, destino string) int {
+	if n == 1 {
+		fmt.Printf("Mova o disco 1 de" + origem + "para " + destino + "\n" )
+		return 1
+	}
+
+	qtdMovimento := hanoi(n-1, origem, trabalho, destino) + 1
+	fmt.Print("Mova o disco " , n , "de " + origem + "para " + destino + "\n")
+	qtdMovimento += hanoi(n-1, trabalho, destino, origem)
+
+	return qtdMovimento
+}
