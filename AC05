@@ -2,25 +2,27 @@ package main
 
 import "fmt"
 
-func busca(array []int, alvo int) {
-    x := 0
-	  y := len(array)-1
+func busca(array []int, alvo int) []int {
+	x := 0
+	y := len(array) - 1
 
-    for x < y {
-        soma := array[x] + array[y]
-        if soma == alvo {
-			      fmt.Println("Par encontrado: (" , array[x] , ", ", array[y] , ")")
-        } else if soma < alvo {
-            x++
-        } else {
-            y--
-        }
-    }
-    fmt.Println("Nenhum par encontrado: (-1, -1)")
+	for x < y {
+		soma := array[x] + array[y]
+		if soma == alvo {
+			fmt.Println("Par encontrado: (", array[x], ", ", array[y], ")")
+			return []int{array[x], array[y]}
+		} else if soma < alvo {
+			x++
+		} else {
+			y--
+		}
+	}
+	fmt.Println("Nenhum par encontrado: (-1, -1)")
+	return []int{-1, -1}
 }
 
 func main() {
-    array := []int{1, 2, 3, 4, 5, 6, 7}
-    alvo := 9
-    busca(array, alvo)
+	array := []int{1, 2, 3, 4, 5, 6, 7}
+	alvo := 9
+	busca(array, alvo)
 }
