@@ -42,15 +42,15 @@ func buscaOrd(v [M]int, n, x int) int {
 func insereOrd(v *[M]int, n *int, novoValor int) {
 	if *n > M {
 		fmt.Println("OverFlow")
-	} else { 
+	} else {
 		for i := 0, i < *n; i++ {
 			ind := buscaOrd(v, n, novoValor + i + 1)
 			if ind != -1 {
 				break
 			} else {
-				
-				
+				if v[ind] = novoValor
 			}
 		}
+		
 	}
 }
