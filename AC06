@@ -22,35 +22,23 @@ func main() {
 	fmt.Println(lista)
 }
 
-//Implemente um programa em Go que faça inserção de valores inteiros em uma lista alocada sequencialmente, 
-//de forma que a lista permaneça sempre ordenada. 
-//A solução final deve ser O(n). 
-//Caso precise utilizar alguma função de busca, escolha a de menor complexidade para o caso.
-
 func buscaOrd(v [M]int, n, x int) int {
 	i := 0
-	v[n] = x
-	for v[i] < x {
+	for i < n && v[i] < x {
 		i++
-	}
-	if i == n + 1 || v[i] != x {
-		return -1
 	}
 	return i
 }
 
 func insereOrd(v *[M]int, n *int, novoValor int) {
-	if *n > M {
-		fmt.Println("OverFlow")
+	i := buscaOrd(*v, *n, novoValor)
+	if i == *n {
+		v[i] = novoValor
 	} else {
-		for i := 0, i < *n; i++ {
-			ind := buscaOrd(v, n, novoValor + i + 1)
-			if ind != -1 {
-				break
-			} else {
-				if v[ind] = novoValor
-			}
+		for j := *n; j > i; j-- {
+			v[j] = v[j-1]
 		}
-		
+		v[i] = novoValor
+		*n++
 	}
 }
